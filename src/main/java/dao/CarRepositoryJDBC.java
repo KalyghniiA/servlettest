@@ -161,10 +161,4 @@ public class CarRepositoryJDBC implements CarRepository {
         car.setPrice(resultSet.getInt("price"));
         return car;
     }
-
-//    private Connection getConnection() throws SQLException {
-//        return DriverManager.getConnection(
-//                "jdbc:postgresql://localhost:6432/cardb", "cardb", "12345"
-//        );
-//   }
 }
