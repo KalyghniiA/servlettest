@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=cardb
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_USER=cardb
+    ports:
+      - '6432:5432'
