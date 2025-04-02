@@ -25,7 +25,10 @@ public class CarRepositoryJDBC implements CarRepository {
              statement.setInt(4, car.getPrice());
 
              statement.executeUpdate();
-             car.setId(statement.getGeneratedKeys().getInt(1));
+             ResultSet rs = statement.getGeneratedKeys();
+             if (rs.next()) {
+                 car.setId(rs.getInt(1));
+             }
              return car;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -151,6 +154,7 @@ public class CarRepositoryJDBC implements CarRepository {
 
     private Car map(ResultSet resultSet) throws SQLException {
         Car car = new Car();
+        car.setId(resultSet.getInt("id"));
         car.setBrand(resultSet.getString("brand"));
         car.setModel(resultSet.getString("model"));
         car.setYear(resultSet.getInt("year"));

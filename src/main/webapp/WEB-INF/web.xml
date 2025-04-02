@@ -6,6 +6,6 @@
          version = "6.1">
   <display-name>Archetype Created Web Application</display-name>
   <listener>
-    <listener-class>CarContextListener</listener-class>
+    <listener-class>listener.CarContextListener</listener-class>
   </listener>
 </web-app>

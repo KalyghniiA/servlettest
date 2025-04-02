@@ -14,7 +14,6 @@ import service.CarService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -68,7 +67,9 @@ public class CarServlet extends HttpServlet {
         String body = reader.lines().collect(Collectors.joining());
         CarDto carDto = objectMapper.readValue(body, CarDto.class);
 
-        carService.save(carDto);
+        PrintWriter writer = resp.getWriter();
+        writer.print(toJson(carService.save(carDto)));
+        writer.close();
     }
 
     private String getCarById(String[] paramID) throws JsonProcessingException {
