@@ -1,5 +1,6 @@
 package listener;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import dao.CarRepository;
@@ -22,6 +23,7 @@ public class CarContextListener implements ServletContextListener {
         CarService service = new CarServiceImpl(repository);
         ServletContext sc = sce.getServletContext();
         sc.setAttribute("carService", service);
+        sc.setAttribute("objectMapper", new ObjectMapper());
         sc.addServlet("carServlet", new CarServlet()).addMapping("/car");
     }
 }
