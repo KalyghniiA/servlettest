@@ -43,6 +43,11 @@
       <artifactId>postgresql</artifactId>
       <version>42.7.5</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>3.0.0-beta3</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>car</finalName>

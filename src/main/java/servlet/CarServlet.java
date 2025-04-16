@@ -62,7 +62,7 @@ public class CarServlet extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         BufferedReader reader = req.getReader();
         String body = reader.lines().collect(Collectors.joining());
         CarDto carDto = objectMapper.readValue(body, CarDto.class);
